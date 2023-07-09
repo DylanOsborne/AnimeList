@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">AnimeList</string>
+    <string name="empty_not_saved">Fill in Field</string>
+
+    <string name="add_anime">Add Anime</string>
+
+    <string name="total_animes_watched">Animes Watched:</string>
+    <string name="total_episodes">Total Episodes:</string>
+    <string name="total_completed">Animes Completed:</string>
+
+    <string name="anime_name_input_text_hint">Anime Name</string>
+    <string name="anime_episode_input_text_hint">Episode</string>
+    <string name="anime_season_input_text_hint">Season</string>
+    <string name="did_you_finish_the_anime">Did You Finish The Anime</string>
+    <string name="search_txt_hint">Search</string>
+
+    <string name="doneButton">Done</string>
+    <string name="edit_button">Edit</string>
+    <string name="delete_button">Delete</string>
+    <string name="update_text">Update</string>
+    <string name="add_word">Add Word</string>
+    <string name="stats">Stats</string>
+</resources>
