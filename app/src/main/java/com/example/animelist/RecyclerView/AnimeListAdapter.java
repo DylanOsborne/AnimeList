@@ -40,43 +40,31 @@ public class AnimeListAdapter extends ListAdapter<Anime, AnimeViewHolder> {
             Dialog dialog = new Dialog(view.getContext());
             dialog.setContentView(R.layout.edit_anime);
 
-            EditText animeName = view.findViewById(R.id.editAnimeNameInputField);
-            EditText animeSeason = view.findViewById(R.id.editAnimeSeasonInputField);
-            EditText animeEps = view.findViewById(R.id.editAnimesEpisodeInputField);
-            CheckBox isChecked = view.findViewById(R.id.editCheckBoxForAnimeCompleted);
+            EditText animeName = dialog.findViewById(R.id.editAnimeNameInputField);
+            EditText animeSeason = dialog.findViewById(R.id.editAnimeSeasonInputField);
+            EditText animeEps = dialog.findViewById(R.id.editAnimesEpisodeInputField);
+            CheckBox isChecked = dialog.findViewById(R.id.editCheckBoxForAnimeCompleted);
 
-            Button updateBtn = view.findViewById(R.id.updateAnimeButton);
+            Button updateBtn = dialog.findViewById(R.id.updateAnimeButton);
 
             animeName.setText(current.getAnimeName());
-            animeSeason.setText(current.getAnimeSeason());
-            animeEps.setText(current.getAnimeEpisode());
+            animeSeason.setText(String.valueOf(current.getAnimeSeason()));
+            animeEps.setText(String.valueOf(current.getAnimeEpisode()));
             isChecked.setChecked(current.isCompleted());
 
             updateBtn.setOnClickListener(view1 -> {
+                String name = animeName.getText().toString();
+                int season = Integer.parseInt(animeSeason.getText().toString());
+                int eps = Integer.parseInt(animeEps.getText().toString());
+                boolean completed = isChecked.isChecked();
 
-                String name = "";
-                int season = 0;
-                int eps = 0;
+                current.setAnimeName(name);
+                current.setAnimeSeason(season);
+                current.setAnimeEpisode(eps);
+                current.setCompleted(completed);
 
-                if(!animeName.getText().toString().equals("") &&
-                        !animeSeason.getText().toString().equals("") &&
-                            !animeEps.getText().toString().equals("")) {
-
-                    name = animeName.getText().toString();
-                    season =  Integer.parseInt(animeSeason.getText().toString());
-                    eps = Integer.parseInt(animeEps.getText().toString());
-
-                    boolean completed = isChecked.isChecked();
-
-                    current.setAnimeName(name);
-                    current.setAnimeSeason(season);
-                    current.setAnimeEpisode(eps);
-                    current.setCompleted(completed);
-
-                    notifyItemChanged(position);
-
-                    dialog.dismiss();
-                }
+                notifyItemChanged(position);
+                dialog.dismiss();
             });
 
             dialog.show();
