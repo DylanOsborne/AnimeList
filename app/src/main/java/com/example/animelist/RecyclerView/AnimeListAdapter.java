@@ -35,10 +35,7 @@ public class AnimeListAdapter extends ListAdapter<Anime, AnimeViewHolder> {
     public void onBindViewHolder(AnimeViewHolder holder, int position) {
         Anime current = getItem(position);
         holder.bindName(current.getAnimeName());
-
-        if(current.isCompleted()) {
-            holder.bindChecked();
-        }
+        holder.bindChecked(current.isCompleted());
 
         holder.editBtn.setOnClickListener(view -> {
             Dialog dialog = new Dialog(view.getContext());
@@ -53,8 +50,8 @@ public class AnimeListAdapter extends ListAdapter<Anime, AnimeViewHolder> {
             Button deleteBtn = dialog.findViewById(R.id.deleteButton);
 
             animeName.setText(current.getAnimeName());
-            animeSeason.setText(String.valueOf(current.getAnimeSeason()));
-            animeEps.setText(String.valueOf(current.getAnimeEpisode()));
+            animeSeason.setText(Integer.toString(current.getAnimeSeason()));
+            animeEps.setText(Integer.toString(current.getAnimeEpisode()));
             isChecked.setChecked(current.isCompleted());
 
             updateBtn.setOnClickListener(view1 -> {

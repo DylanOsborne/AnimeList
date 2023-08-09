@@ -37,13 +37,11 @@ public class NewAnimeActivity extends AppCompatActivity {
                     TextUtils.isEmpty(animeEps.getText())) {
                 setResult(RESULT_CANCELED, replyIntent);
             } else {
-                Bundle bundle = new Bundle();
                 boolean completed = isChecked.isChecked();
 
-
                 replyIntent.putExtra("name", animeName.getText().toString());
-                replyIntent.putExtra("season", animeSeason.getText());
-                replyIntent.putExtra("episode", animeEps.getText());
+                replyIntent.putExtra("season", Integer.parseInt(animeSeason.getText().toString()));
+                replyIntent.putExtra("episode", Integer.parseInt(animeEps.getText().toString()));
                 replyIntent.putExtra("completed", completed);
 
                 setResult(123, replyIntent);

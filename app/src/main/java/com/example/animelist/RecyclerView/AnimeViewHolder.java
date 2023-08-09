@@ -28,8 +28,8 @@ public class AnimeViewHolder extends RecyclerView.ViewHolder {
         animeItemView.setText(text);
     }
 
-    public void bindChecked() {
-        isAnimeCompletedView.setChecked(true);
+    public void bindChecked(boolean isChecked) {
+        isAnimeCompletedView.setChecked(isChecked);
     }
 
 
