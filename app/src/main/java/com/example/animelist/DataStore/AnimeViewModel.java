@@ -26,4 +26,8 @@ public class AnimeViewModel extends AndroidViewModel {
     public void insert(Anime anime) {
         mRepository.insert(anime);
     }
+
+    public void deleteAnime(Anime anime) {
+        mRepository.deleteAnime(anime);
+    }
 }

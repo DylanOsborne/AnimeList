@@ -23,7 +23,6 @@ public abstract class AnimeRoomDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             synchronized (AnimeRoomDatabase.class) {
                 if (INSTANCE == null) {
-                    // Create database here
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                                     AnimeRoomDatabase.class, "anime_database")
                             .fallbackToDestructiveMigration()

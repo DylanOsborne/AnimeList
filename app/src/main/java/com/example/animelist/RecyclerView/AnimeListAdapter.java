@@ -12,12 +12,16 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 
 import com.example.animelist.DataStore.Anime;
+import com.example.animelist.DataStore.AnimeViewModel;
 import com.example.animelist.R;
 
 public class AnimeListAdapter extends ListAdapter<Anime, AnimeViewHolder> {
 
-    public AnimeListAdapter(@NonNull DiffUtil.ItemCallback<Anime> diffCallback) {
+    private final AnimeViewModel viewModel;
+
+    public AnimeListAdapter(@NonNull DiffUtil.ItemCallback<Anime> diffCallback, AnimeViewModel viewModel) {
         super(diffCallback);
+        this.viewModel = viewModel;
     }
 
     @NonNull
@@ -46,6 +50,7 @@ public class AnimeListAdapter extends ListAdapter<Anime, AnimeViewHolder> {
             CheckBox isChecked = dialog.findViewById(R.id.editCheckBoxForAnimeCompleted);
 
             Button updateBtn = dialog.findViewById(R.id.updateAnimeButton);
+            Button deleteBtn = dialog.findViewById(R.id.deleteButton);
 
             animeName.setText(current.getAnimeName());
             animeSeason.setText(String.valueOf(current.getAnimeSeason()));
@@ -65,6 +70,27 @@ public class AnimeListAdapter extends ListAdapter<Anime, AnimeViewHolder> {
 
                 notifyItemChanged(position);
                 dialog.dismiss();
+            });
+
+            deleteBtn.setOnClickListener(view1 -> {
+                Dialog deleteConfirmation = new Dialog(view.getContext());
+                deleteConfirmation.setContentView(R.layout.delete_confirmation);
+
+                Button yesBtn = deleteConfirmation.findViewById(R.id.yesButton);
+                Button noBtn = deleteConfirmation.findViewById(R.id.noButton);
+
+                yesBtn.setOnClickListener(view2 -> {
+                    viewModel.deleteAnime(current);
+                    deleteConfirmation.dismiss();
+                    dialog.dismiss();
+                });
+
+                noBtn.setOnClickListener(view2 -> {
+                    deleteConfirmation.dismiss();
+                    dialog.dismiss();
+                });
+
+                deleteConfirmation.show();
             });
 
             dialog.show();

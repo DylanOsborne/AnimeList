@@ -24,19 +24,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mAnimeViewModel = new ViewModelProvider(this).get(AnimeViewModel.class);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
-        final AnimeListAdapter adapter = new AnimeListAdapter(new AnimeListAdapter.AnimeDiff());
+        final AnimeListAdapter adapter = new AnimeListAdapter(new AnimeListAdapter.AnimeDiff(), mAnimeViewModel);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
-        mAnimeViewModel = new ViewModelProvider(this).get(AnimeViewModel.class);
-
-
-        // Update the cached copy of the words in the adapter.
         mAnimeViewModel.getAllAnimes().observe(this, adapter::submitList);
-
 
         Button addAnimeButton = findViewById(R.id.addAnimeButton);
         addAnimeButton.setOnClickListener( view -> {

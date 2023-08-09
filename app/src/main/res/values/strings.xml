@@ -20,4 +20,8 @@
     <string name="update_text">Update</string>
     <string name="add_word">Add Word</string>
     <string name="stats">Stats</string>
+
+    <string name="conformation_Text">Are you sure you wish to delete this entry?</string>
+    <string name="conformation_Yes">YES</string>
+    <string name="conformation_No">NO</string>
 </resources>
