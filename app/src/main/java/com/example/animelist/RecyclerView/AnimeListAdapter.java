@@ -65,6 +65,8 @@ public class AnimeListAdapter extends ListAdapter<Anime, AnimeViewHolder> {
                 current.setAnimeEpisode(eps);
                 current.setCompleted(completed);
 
+                viewModel.updateAnime(current);
+
                 notifyItemChanged(position);
                 dialog.dismiss();
             });

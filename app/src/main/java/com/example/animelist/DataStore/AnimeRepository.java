@@ -32,5 +32,9 @@ public class AnimeRepository {
     void deleteAnime(Anime anime) {
         databaseWriteExecutor.execute(() -> mAnimeDao.deleteAnime(anime));
     }
+
+    void updateAnime(Anime anime) {
+        databaseWriteExecutor.execute(() -> mAnimeDao.updateAnime(anime));
+    }
 }
 

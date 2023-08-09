@@ -30,4 +30,8 @@ public class AnimeViewModel extends AndroidViewModel {
     public void deleteAnime(Anime anime) {
         mRepository.deleteAnime(anime);
     }
+
+    public void updateAnime(Anime anime) {
+        mRepository.updateAnime(anime);
+    }
 }
