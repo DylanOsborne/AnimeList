@@ -4,9 +4,10 @@
 
     <string name="add_anime">Add Anime</string>
 
-    <string name="total_animes_watched">Animes Watched:</string>
-    <string name="total_episodes">Total Episodes:</string>
-    <string name="total_completed">Animes Completed:</string>
+    <string name="total_animes_watched">Total Anime\'s Watched:</string>
+    <string name="total_episodes">Total Episodes Watched:</string>
+    <string name="total_completed">Total Anime\'s Completed:</string>
+    <string name="back_button">BACK</string>
 
     <string name="anime_name_input_text_hint">Anime Name</string>
     <string name="anime_episode_input_text_hint">Episode</string>

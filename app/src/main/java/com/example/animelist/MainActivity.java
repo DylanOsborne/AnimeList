@@ -38,26 +38,33 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, NewAnimeActivity.class);
             addAnimeActivityLaunch.launch(intent);
         });
+
+        Button statsButton = findViewById(R.id.statsButton);
+        statsButton.setOnClickListener( view -> {
+            Intent intent = new Intent(this, StatsActivity.class);
+            startActivity(intent);
+        });
     }
 
 
     ActivityResultLauncher<Intent> addAnimeActivityLaunch = registerForActivityResult(
-            new ActivityResultContracts.StartActivityForResult(),
-            result -> {
-                if (result.getResultCode() == 123) {
+        new ActivityResultContracts.StartActivityForResult(),
+        result -> {
+            if (result.getResultCode() == 123) {
 
-                    Intent data = result.getData();
+                Intent data = result.getData();
 
-                    assert data != null;
+                assert data != null;
 
-                    String animeName = data.getStringExtra("name");
-                    int animeSeason = data.getIntExtra("season", 0);
-                    int animeEps = data.getIntExtra("episode", 0);
-                    boolean isChecked = data.getBooleanExtra("completed", false);
+                String animeName = data.getStringExtra("name");
+                int animeSeason = data.getIntExtra("season", 0);
+                int animeEps = data.getIntExtra("episode", 0);
+                boolean isChecked = data.getBooleanExtra("completed", false);
 
-                    Anime anime = new Anime(animeName, animeSeason, animeEps, isChecked);
-                    mAnimeViewModel.insert(anime);
+                Anime anime = new Anime(animeName, animeSeason, animeEps, isChecked);
+                mAnimeViewModel.insert(anime);
 
-                }
-            });
+            }
+        }
+    );
 }
