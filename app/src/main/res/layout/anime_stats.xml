@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <TextView
+        android:id="@+id/totalAnimeWatchedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="50dp"
+        android:text="@string/total_animes_watched"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toTopOf="@+id/totalCompletedText"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/totalAnimeWatchedNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:textSize="23sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/totalAnimeWatchedText"
+        app:layout_constraintStart_toEndOf="@+id/totalAnimeWatchedText"
+        app:layout_constraintTop_toTopOf="@+id/totalAnimeWatchedText" />
+
+    <TextView
+        android:id="@+id/totalCompletedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="50dp"
+        android:text="@string/total_completed"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toTopOf="@+id/totalEpisodesText"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/totalCompletedNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:textSize="23sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/totalCompletedText"
+        app:layout_constraintStart_toEndOf="@+id/totalCompletedText"
+        app:layout_constraintTop_toTopOf="@+id/totalCompletedText" />
+
+    <TextView
+        android:id="@+id/totalEpisodesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="150dp"
+        android:text="@string/total_episodes"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toTopOf="@+id/backButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/totalEpisodesNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:textSize="23sp"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/totalEpisodesText"
+        app:layout_constraintStart_toEndOf="@+id/totalEpisodesText"
+        app:layout_constraintTop_toTopOf="@+id/totalEpisodesText" />
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="340dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/back_button"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
