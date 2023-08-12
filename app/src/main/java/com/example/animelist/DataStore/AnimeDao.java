@@ -27,7 +27,4 @@ public interface AnimeDao {
 
     @Update
     void updateAnime(Anime anime);
-
-    @Query("SELECT COUNT(*) FROM anime_table")
-    int getAnimeCount();
 }

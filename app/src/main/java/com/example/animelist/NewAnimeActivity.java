@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class NewAnimeActivity extends AppCompatActivity {
 
@@ -32,9 +33,9 @@ public class NewAnimeActivity extends AppCompatActivity {
         button.setOnClickListener(view -> {
             Intent replyIntent = new Intent();
 
-            if (TextUtils.isEmpty(animeName.getText()) &&
-                    TextUtils.isEmpty(animeSeason.getText()) &&
-                    TextUtils.isEmpty(animeEps.getText())) {
+            if (TextUtils.isEmpty(animeName.getText()) || TextUtils.isEmpty(animeSeason.getText()) || TextUtils.isEmpty(animeEps.getText())) {
+                Toast.makeText(this, "Incomplete Fields", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Anime Not Added", Toast.LENGTH_SHORT).show();
                 setResult(RESULT_CANCELED, replyIntent);
             } else {
                 boolean completed = isChecked.isChecked();
@@ -44,6 +45,7 @@ public class NewAnimeActivity extends AppCompatActivity {
                 replyIntent.putExtra("episode", Integer.parseInt(animeEps.getText().toString()));
                 replyIntent.putExtra("completed", completed);
 
+                Toast.makeText(this, "Anime Added", Toast.LENGTH_SHORT).show();
                 setResult(123, replyIntent);
             }
 

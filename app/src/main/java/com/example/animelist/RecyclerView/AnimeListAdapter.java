@@ -2,10 +2,14 @@ package com.example.animelist.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Context;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -15,13 +19,19 @@ import com.example.animelist.DataStore.Anime;
 import com.example.animelist.DataStore.AnimeViewModel;
 import com.example.animelist.R;
 
-public class AnimeListAdapter extends ListAdapter<Anime, AnimeViewHolder> {
+import java.util.ArrayList;
+import java.util.List;
+
+public class AnimeListAdapter extends ListAdapter<Anime, AnimeViewHolder> implements Filterable {
 
     private final AnimeViewModel viewModel;
+    private List<Anime> originalData;
+    private final Context context;
 
-    public AnimeListAdapter(@NonNull DiffUtil.ItemCallback<Anime> diffCallback, AnimeViewModel viewModel) {
+    public AnimeListAdapter(@NonNull DiffUtil.ItemCallback<Anime> diffCallback, AnimeViewModel viewModel, Context context) {
         super(diffCallback);
         this.viewModel = viewModel;
+        this.context = context;
     }
 
     @NonNull
@@ -79,6 +89,7 @@ public class AnimeListAdapter extends ListAdapter<Anime, AnimeViewHolder> {
                 Button noBtn = deleteConfirmation.findViewById(R.id.noButton);
 
                 yesBtn.setOnClickListener(view2 -> {
+                    Toast.makeText(context, "Anime Deleted", Toast.LENGTH_SHORT).show();
                     viewModel.deleteAnime(current);
                     deleteConfirmation.dismiss();
                     dialog.dismiss();
@@ -96,6 +107,46 @@ public class AnimeListAdapter extends ListAdapter<Anime, AnimeViewHolder> {
         });
     }
 
+    @Override
+    public Filter getFilter() {
+        return new AnimeFilter();
+    }
+
+    private class AnimeFilter extends Filter {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            String filterString = constraint.toString().toLowerCase();
+
+            List<Anime> filteredList = new ArrayList<>();
+
+            if (originalData == null) {
+                originalData = getCurrentList();
+            }
+
+            if (filterString.isEmpty()) {
+                filteredList.addAll(originalData);
+            } else {
+                for (Anime anime : originalData) {
+                    if (anime.getAnimeName().toLowerCase().startsWith(filterString)) {
+                        filteredList.add(anime);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            results.count = filteredList.size();
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            List<Anime> filteredList = (List<Anime>) results.values;
+            submitList(filteredList);
+        }
+    }
+
     public static class AnimeDiff extends DiffUtil.ItemCallback<Anime> {
 
         @Override
@@ -108,5 +159,5 @@ public class AnimeListAdapter extends ListAdapter<Anime, AnimeViewHolder> {
             return oldItem.getAnimeName().equals(newItem.getAnimeName());
         }
     }
-
 }
+
