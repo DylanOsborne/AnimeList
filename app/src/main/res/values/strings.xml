@@ -12,7 +12,7 @@
     <string name="anime_name_input_text_hint">Anime Name</string>
     <string name="anime_episode_input_text_hint">Episode</string>
     <string name="anime_season_input_text_hint">Season</string>
-    <string name="did_you_finish_the_anime">Did You Finish The Anime</string>
+    <string name="did_you_finish_the_anime">Completed</string>
     <string name="search_txt_hint">Search</string>
 
     <string name="doneButton">Done</string>

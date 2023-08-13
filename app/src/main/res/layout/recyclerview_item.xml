@@ -24,33 +24,46 @@
             android:layout_height="50dp"
             android:gravity="center"
             android:orientation="horizontal"
+            android:background="@color/grey"
             tools:ignore="UseCompoundDrawables">
 
-            <TextView
+            <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/textView_item_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center|center_vertical"
                 android:layout_weight="1"
-                android:textColor="@android:color/black"
+                android:maxLines="2"
+                android:paddingStart="10dp"
+                android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                tools:text="Item"
-                android:paddingStart="10dp"/>
+                app:autoSizeMaxTextSize="20sp"
+                app:autoSizeMinTextSize="12sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform"
+                tools:ignore="RtlSymmetry"
+                tools:text="Item" />
 
             <CheckBox
                 android:id="@+id/completedCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
+                android:textColor="@color/black"
                 android:clickable="false"/>
 
             <Button
                 android:id="@+id/editBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
                 android:layout_weight="0.1"
-                android:text="@string/edit_button" />
+                android:background="@color/purple_500"
+                android:text="@string/edit_button"
+                tools:ignore="TouchTargetSizeCheck" />
 
         </LinearLayout>
 

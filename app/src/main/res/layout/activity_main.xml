@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
+    android:textColor="@color/black"
     android:background="@color/black">
 
     <SearchView
@@ -12,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginEnd="105dp"
-        android:background="@color/white"
+        android:background="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -24,7 +25,7 @@
         android:layout_width="100dp"
         android:layout_height="48dp"
         android:layout_marginStart="5dp"
-        android:background="@color/white"
+        android:background="@color/grey"
         android:entries="@array/sort_options"
         app:layout_constraintBottom_toBottomOf="@+id/searchView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,25 +55,40 @@
 
         <Button
             android:id="@+id/statsButton"
-            android:layout_width="200dp"
+            android:layout_width="180dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="4dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="200dp"
+            android:background="@color/purple_500"
             android:text="@string/stats"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.0"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform" />
 
         <Button
             android:id="@+id/addAnimeButton"
-            android:layout_width="200dp"
+            android:layout_width="180dp"
             android:layout_height="match_parent"
-            android:layout_marginEnd="4dp"
+            android:layout_marginStart="200dp"
+            android:background="@color/purple_500"
+            android:layout_marginBottom="10dp"
             android:text="@string/add_anime"
             android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:autoSizeMaxTextSize="20sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

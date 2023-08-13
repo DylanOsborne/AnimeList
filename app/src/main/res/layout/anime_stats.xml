@@ -13,7 +13,7 @@
         android:layout_marginBottom="50dp"
         android:text="@string/total_animes_watched"
         android:textColor="@color/white"
-        android:textSize="23sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/totalCompletedText"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -22,11 +22,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:textSize="23sp"
+        android:textSize="20sp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/totalAnimeWatchedText"
         app:layout_constraintStart_toEndOf="@+id/totalAnimeWatchedText"
-        app:layout_constraintTop_toTopOf="@+id/totalAnimeWatchedText" />
+        app:layout_constraintTop_toTopOf="@+id/totalAnimeWatchedText"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeStepGranularity="2sp"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/totalCompletedText"
@@ -36,7 +40,7 @@
         android:layout_marginBottom="50dp"
         android:text="@string/total_completed"
         android:textColor="@color/white"
-        android:textSize="23sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/totalEpisodesText"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -45,11 +49,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:textSize="23sp"
+        android:textSize="20sp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/totalCompletedText"
         app:layout_constraintStart_toEndOf="@+id/totalCompletedText"
-        app:layout_constraintTop_toTopOf="@+id/totalCompletedText" />
+        app:layout_constraintTop_toTopOf="@+id/totalCompletedText"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeStepGranularity="2sp"
+        app:autoSizeTextType="uniform" />
 
     <TextView
         android:id="@+id/totalEpisodesText"
@@ -59,7 +67,7 @@
         android:layout_marginBottom="150dp"
         android:text="@string/total_episodes"
         android:textColor="@color/white"
-        android:textSize="23sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/backButton"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -68,11 +76,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:textSize="23sp"
+        android:textSize="20sp"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/totalEpisodesText"
         app:layout_constraintStart_toEndOf="@+id/totalEpisodesText"
-        app:layout_constraintTop_toTopOf="@+id/totalEpisodesText" />
+        app:layout_constraintTop_toTopOf="@+id/totalEpisodesText"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeStepGranularity="2sp"
+        app:autoSizeTextType="uniform" />
 
     <Button
         android:id="@+id/backButton"
@@ -83,8 +95,13 @@
         android:layout_marginEnd="32dp"
         android:text="@string/back_button"
         android:textSize="20sp"
+        android:background="@color/purple_500"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeStepGranularity="2sp"
+        app:autoSizeTextType="uniform" />
 </androidx.constraintlayout.widget.ConstraintLayout>
